@@ -3,6 +3,10 @@ let diceButton = document.getElementById('diceRoll');
 
 const dieTypes = [ 4, 6, 8, 10, 12, 20, 100 ];
 
+function rollDice(dieTypes) {
+  let roll = Math.floor(Math.random() * dieTypes) +1;
+  alert(roll);
+}
 
 var ul = document.createElement('ul');
 ul.innerHTML = "Dice List";
@@ -22,10 +26,6 @@ for (const dieType of dieTypes) {
   ul.append(li);
   li.append(btn);
   btn.addEventListener('click', rollDice)
-    function rollDice(dieTypes) {
-      let roll = Math.floor(Math.random() * dieType) +1;
-      alert(roll);
-  }
 
 }
 
@@ -33,7 +33,7 @@ for (const dieType of dieTypes) {
 
 var advantage = document.createElement('button');
 advantage.innerHTML = "With Advantage";
-document.querySelector('#diceRoll').append(advantage);
+document.querySelector('body').append(advantage);
 advantage.addEventListener('click', withAdvantage)
   function withAdvantage() {
     let roll1 = Math.floor(Math.random() * 6) +1;
@@ -45,3 +45,11 @@ advantage.addEventListener('click', withAdvantage)
     }
     console.log(roll1, roll2);
   }
+
+  //For the rolling of any number of dice, will be using a loop function.
+  // Going to attempt to use a Do while statement. And introduce a numerical field
+
+  var diceNumber = document.createElement('input');
+  diceNumber.innerHTML = "How Many Dice";
+  diceNumber.value = 0;
+  document.querySelector('body').append(diceNumber);
